@@ -59,7 +59,7 @@ class Service {
  *  1. la permutabilité de multiples façon d'effectuer une transaction. 
  *  2. L'assurance que la transaction respectera le contrat defini.
  * 
- * @author Etienne Pradillon <epradillon@gmail.com> | Samir Founou <epradillon@gmail.com>
+ * @author Etienne Pradillon <epradillon@gmail.com> | Samir Founou <samir_615@live.fr>
  */
 interface TransactionStrategyInterface {
 
