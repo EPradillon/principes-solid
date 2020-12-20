@@ -12,7 +12,9 @@ Le pattern Strategy s'appuis sur l'inversion de dépendance pour facilement chan
 2. de les encapsuler individuelement en tant qu'objet.
 3. de les rendre interchangeables  
 
-Ce design sert à changer le comportement (les règles du jeu) pendant l'execution.
+Ce design sert à changer le comportement (les règles du jeu) pendant l'execution. 
+Exemple : Un joueur démare un jeu vidéo, sûr de lui, en mode hardcore. Mais baisse le niveau de difficulté à chaque rencontre avec un boss. 
+> Un élément extérieur va intéragir sur une période qu'on ne peut pas prévoir
 
 
 
