@@ -2,7 +2,7 @@
 
 require_once("./TransactionStrategyInterface.php");
 
-class MacroniTransactionStrategy implements TransactionStrategyInterface{
+class TransactionMacroniStrategy implements TransactionStrategyInterface{
 
     /**
      * Effectue une transaction entre 2 individus

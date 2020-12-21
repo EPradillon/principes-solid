@@ -2,7 +2,7 @@
 
 require_once("./InteractionStrategyInterface.php");
 
-class NeighbourgInteractionStrategy implements InteractionStrategyInterface{
+class InteractionNeighbourgStrategy implements InteractionStrategyInterface{
 
     /**
      * Selectionne aléatoirement 2 individus dans une population
