@@ -45,7 +45,7 @@ class Display {
                "| - Stratégies de distribution   - CLI : distr      |\n" .
                "| - Stratégies de d'intéraction  - CLI : inter      |\n" .
                "| - Stratégies de transaction    - CLI : trans      |\n" .
-               "| - Retour                       - CLI : menu                        |\n" .
+               "| - Retour                       - CLI : menu       |\n" .
                "|                                                   |\n" .
                "---------------           🖥          ---------------\n" .
                $notification
@@ -87,7 +87,7 @@ class Display {
                "|            **************************             |\n" .
                "|                                                   |\n" .
                "| - Aléatoire (défault)      - CLI : inter1         |\n" .
-               "| - Entre voison             - CLI : inter2         |\n" .
+               "| - Entre voisin             - CLI : inter2         |\n" .
                "| - Retour                   - CLI : option         |\n" .
                "|                                                   |\n" .
                "---------------           🖥          ---------------\n"
