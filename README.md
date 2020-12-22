@@ -1,6 +1,6 @@
 > TP réalisé par Founou Samir et Étienne Pradillon
 
-# principes-solid
+# Princes SOLID
 
 ## Strategy :
 > Ne pas confondre l'utilisation de l'inversion de dépendance (reposant sur des interfaces) et le design pattern strategy.  
