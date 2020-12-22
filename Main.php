@@ -13,10 +13,6 @@ class Main
 {
     private Display $display;
 
-    private GiniGenerator $giniGenerator;
-
-    private float $giniIndex;
-
     public function __construct()
     {
         $this->display = new Display();
@@ -28,37 +24,6 @@ class Main
     public function getDisplay()
     {
         return $this->display;
-    }
-
-    /**
-     * Allow to set gini generator
-     *
-     * @param GiniGenerator $giniGenerator
-     * @return void
-     */
-    public function setGiniGenerator(GiniGenerator $giniGenerator)
-    {
-        $this->giniGenerator = $giniGenerator;
-    }
-
-    /**
-     * Get the value of giniIndex
-     */ 
-    public function getGiniIndex()
-    {
-        return $this->giniIndex;
-    }
-
-    /**
-     * Set the value of giniIndex
-     *
-     * @return  self
-     */ 
-    public function setGiniIndex($giniIndex)
-    {
-        $this->giniIndex = $giniIndex;
-
-        return $this;
     }
 }
 
