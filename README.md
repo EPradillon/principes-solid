@@ -1,3 +1,5 @@
+> TP réalisé par Founou Samir et Étienne Pradillon
+
 # principes-solid
 
 ## Strategy :
