@@ -2,7 +2,7 @@
 
 require_once("./TransactionStrategyInterface.php");
 
-class RandomTransactionStrategy implements TransactionStrategyInterface{
+class TransactionRandomStrategy implements TransactionStrategyInterface{
 
     /**
      * Effectue une transaction entre 2 individus
