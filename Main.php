@@ -3,6 +3,9 @@ require_once('./Display.php');
 require_once('./GiniGenerator.php');
 require_once('./PopulationFactory.php');
 require_once('./TransactionMacroniStrategy.php');
+require_once('./TransactionRandomStrategy.php');
+require_once('./InteractionNeighbourgStrategy.php');
+require_once('./InteractionRandomStrategy.php');
 
 class Main
 {
@@ -51,54 +54,69 @@ class Main
     }
 }
 
-$main              = new Main();
-$populationFactory = new PopulationFactory();
-$giniGenerator     = new GiniGenerator($populationFactory);
-$transactionMacro  = new TransactionMacroniStrategy();
+$main                  = new Main();
+$populationFactory     = new PopulationFactory();
+$giniGenerator         = new GiniGenerator($populationFactory);
+$transactionMacroni    = new TransactionMacroniStrategy();
+$transactionRandom     = new TransactionRandomStrategy();
+$interactionRandom     = new InteractionRandomStrategy();
+$interactionNeighbourg = new InteractionNeighbourgStrategy();
+$distributionNormale   = new DistributionNormalStrategy();
+$distributionRandom    = new DistributionRandomStrategy();
 
 $giniGenerator->initializePopulation();
-var_dump($giniGenerator->getPopulation());
-var_dump($giniGenerator->evaluateWealth());
-$giniGenerator->makeIteration(10000);
-var_dump($giniGenerator->evaluateWealth());
-$giniGenerator->setTransactionStrategy($transactionMacro);
-$giniGenerator->makeIteration(10000);
-var_dump($giniGenerator->evaluateWealth());
-// var_dump($giniGenerator->getTransactionStrategy());
-// var_dump($giniGenerator->getPopulation());
 
+$arrayCli = [
+    'menu'    => $main->getDisplay()->menuPanel(),
+    'option'  => $main->getDisplay()->configurationPanel(),
+    'distr'   => $main->getDisplay()->strategiesDistributionPanel(),
+    'inter'   => $main->getDisplay()->strategiesInteractonPanel(),
+    'trans'   => $main->getDisplay()->strategiesTransactionPanel(),
+    'error'   => $main->getDisplay()->CliException(),
+];
 
+$end = false;
 
-// $arrayCli = [
-//     'menu'   => $main->getDisplay()->menuPanel(),
-//     'option' => $main->getDisplay()->configurationPanel(),
-//     'distr'  => $main->getDisplay()->strategiesDistributionPanel(),
-//     'inter'  => $main->getDisplay()->strategiesInteractonPanel(),
-//     'trans'  => $main->getDisplay()->strategiesTransactionPanel(),
-//     'start'  => $main->getDisplay()->startSimulationPanel($giniFirst, $giniSecond),
-//     'error'  => $main->getDisplay()->CliException(),
-// ];
+echo $arrayCli["menu"];
 
-// $end = false;
+while(!$end){
+    $cli = readline("CLI : ");
+    $cli = trim($cli);
+    $cli == "stop" ? $end = true : $end = false;
 
-// echo $arrayCli["menu"];
-
-// while(!$end){
-//     $cli = readline("CLI : ");
-//     $cli = trim($cli);
-//     $cli == "stop" ? $end = true : $end = false;
+    if($cli == 'inter1'){
+        $giniGenerator->setInteractionStrategy($interactionRandom);
+    } elseif($cli == 'inter2'){
+        $giniGenerator->setInteractionStrategy($interactionNeighbourg);
+    } elseif($cli == 'trans1'){
+        $giniGenerator->setTransactionStrategy($transactionRandom);
+    } elseif($cli == 'trans2'){
+        $giniGenerator->setTransactionStrategy($transactionMacroni);
+    } elseif($cli == 'distr1'){
+        $populationFactory->setDistributionStrategy($distributionNormale);
+        $giniGenerator->initializePopulation();
+    } elseif($cli == 'distr2'){
+        $populationFactory->setDistributionStrategy($distributionRandom);
+        $giniGenerator->initializePopulation();
+    }
     
-//     $main->getDisplay()->clearConsole();
+    $main->getDisplay()->clearConsole();
     
-//     if(!$end){
-//         if( in_array( $cli, array_keys($arrayCli)) ){
-//             echo $arrayCli[$cli];
-//         } else {
-//             $main->getDisplay()->clearConsole();
-//             echo $arrayCli["error"];
-//         }
-//     }
-// }
+    if(!$end){
+        if($cli == 'start'){
+            $giniFirst = $giniGenerator->evaluateWealth();
+            $giniGenerator->makeIteration(10000);
+            $giniSecond = $giniGenerator->evaluateWealth();
+
+            echo $main->getDisplay()->startSimulationPanel($giniFirst, $giniSecond);
+        } elseif( in_array( $cli, array_keys($arrayCli)) ){     
+            echo $arrayCli[$cli];
+        } else {
+            $main->getDisplay()->clearConsole();
+            echo $arrayCli["error"];
+        }
+    }
+}
 
 
 
