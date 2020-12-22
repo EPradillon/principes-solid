@@ -65,9 +65,9 @@ class Display {
                 "|             Stratégies de distribtion             |\n" .
                 "|            ***************************            |\n" .
                 "|                                                   |\n" .
-                "| - Stratégie 1 - CLI : distr1                      |\n" .
-                "| - Stratégie 2 - CLI : distr2                      |\n" .
-                "| - Retour      - CLI : option                      |\n" .
+                "| - Loi normale (default)    - CLI : distr1         |\n" .
+                "| - Aléatoire                - CLI : distr2         |\n" .
+                "| - Retour                   - CLI : option         |\n" .
                 "|                                                   |\n" .
                 "---------------           🖥          ---------------\n"
         );
@@ -86,9 +86,9 @@ class Display {
                "|             Stratégies d'intéraction              |\n" .
                "|            **************************             |\n" .
                "|                                                   |\n" .
-               "| - Stratégie 1 - CLI : inter1                      |\n" .
-               "| - Stratégie 2 - CLI : inter2                      |\n" .
-               "| - Retour      - CLI : option                      |\n" .
+               "| - Aléatoire (défault)      - CLI : inter1         |\n" .
+               "| - Entre voison             - CLI : inter2         |\n" .
+               "| - Retour                   - CLI : option         |\n" .
                "|                                                   |\n" .
                "---------------           🖥          ---------------\n"
         );
@@ -107,9 +107,9 @@ class Display {
                 "|             Stratégies de transaction             |\n" .
                 "|            ***************************            |\n" .
                 "|                                                   |\n" .
-                "| - Stratégie 1 - CLI : trans1                      |\n" .
-                "| - Stratégie 2 - CLI : trans2                      |\n" .
-                "| - Retour      - CLI : option                      |\n" .
+                "| - Partage aléatoire (default)  - CLI : trans1     |\n" .
+                "| - Le plus riche prend tout     - CLI : trans2     |\n" .
+                "| - Retour                       - CLI : option     |\n" .
                 "|                                                   |\n" .
                 "---------------           🖥          ---------------\n"
         );

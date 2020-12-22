@@ -41,11 +41,6 @@ abstract class AbstractEconomicService implements SimulationEconomicServiceInter
         $this->population = $this->populationFactory->createPopulation(10000);
     }
 
-    public function getPopulation(): array
-    {
-        return $this->population;
-    }
-
     /**
      * Evaluation de la répartition de richesse
      * 
@@ -116,5 +111,10 @@ abstract class AbstractEconomicService implements SimulationEconomicServiceInter
     public function getTransactionStrategy()
     {
         return $this->transactionStrategy;
+    }
+    
+    public function getPopulation(): array
+    {
+        return $this->population;
     }
 }
