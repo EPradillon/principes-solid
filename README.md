@@ -67,3 +67,7 @@ Depuis php 7.4 il est possible de choisir entre un typage fort ou faible.
 declare(strict_types = 1);
 ```
 Cette instruction impose au code du fichier un typage fort.
+
+## Conception de l'application
+> Diagramme de classe
+![class diagram](https://github.com/EPradillon/principes-solid/blob/main/class_diagram.png?raw=true)
