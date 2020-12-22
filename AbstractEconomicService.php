@@ -24,6 +24,16 @@ abstract class AbstractEconomicService implements SimulationEconomicServiceInter
         return $this->population;
     }
 
+    /**
+     * Evaluation de la répartition de richesse
+     * 
+     * l'objectif était de faire un patron de conception : Template méthode.
+     * Mais comme nous n'avons travailler actuellement que sur l'indice gini 
+     * il est dur de connaitre les étapes communes entre plusieurs méthode d'évaluation.
+     * Au final on a choisi une abstract function qui sera implémenter par les enfants.
+     *
+     * @return float
+     */
     abstract public function evaluateWealth(): float;
 
     public function makeIteration(int $iteration): void
