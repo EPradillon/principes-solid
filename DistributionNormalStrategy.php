@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 require_once("./DistributionStrategyInterface.php");
 
@@ -34,6 +32,13 @@ class DistributionNormalStrategy implements DistributionStrategyInterface
         return $modifiedValue;
     }
 
+    /**
+     * Allow to apply disparity
+     *
+     * @param integer $initialValue
+     * @param integer $modifier
+     * @return integer
+     */
     public function applyDisparity(int $initialValue, int $modifier): int
     {
         return rand(0, 1) === 1 ? $initialValue - $modifier : $initialValue + $modifier;

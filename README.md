@@ -16,9 +16,50 @@ Ce design sert à changer le comportement (les règles du jeu) pendant l'executi
 Exemple : Un joueur démare un jeu vidéo, sûr de lui, en mode hardcore. Mais baisse le niveau de difficulté à chaque rencontre avec un boss. 
 > Un élément extérieur va intéragir sur une période qu'on ne peut pas prévoir
 
+## Lancement de l'application
+> Étape 1 : [Installer php](https://thishosting.rocks/install-php-on-ubuntu/)
 
+> Étape 2 : Lancer la commande à la racine du projet : 
+```
+    php Main.php
+```
+> Affichage en console
+```
+--------------- Simulation Economique ---------------
+|                                                   |
+|                        Menu                       |
+|                       ******                      |
+|                                                   |
+| - Configuration des stratégies - CLI : option     |
+| - Lancer la simulation         - CLI : start      |
+| - Quitter                      - CLI : stop       |
+|                                                   |
+---------------           🖥          ---------------
+CLI : 
 
- 
+--------------- Simulation Economique ---------------
+|                                                   |
+|            Lancement de la simulation             |
+|           ****************************            |
+|                                                   |
+| - Indice de GINI avant la simulation :            |
+| => 0.16                                           |
+|                                                   |
+| - Indice de GINI après la simulation :            |
+| => 0.4                                           |
+|                                                   |
+| - Retour   - CLI : menu                           |
+| - Relancer - CLI : start                          |
+| - Quitter  - CLI : stop                           |
+|                                                   |
+---------------           🖥          ---------------
+Avant l'itération nous avons une inégalité très faible avec un indice de gini d'environ 16 % 
+
+Après l'itération nous avons une inégalité faible avec un indice de gini d'environ 40 % 
+
+CLI : 
+```
+
 ## Php :
 
 Depuis php 7.4 il est possible de choisir entre un typage fort ou faible.

@@ -1,8 +1,11 @@
-<?php
+<?php declare(strict_types = 1);
 require_once("./AbstractEconomicService.php");
 
 final class GiniGenerator extends AbstractEconomicService
 {
+    /**
+     * Initialization of salaries bracket
+     */
     private array $salaryBracket = [
         "0-1000",
         "1000-2000",
@@ -11,6 +14,11 @@ final class GiniGenerator extends AbstractEconomicService
         "4000-5000"
     ];
 
+    /**
+     * Allow to initialize the concentration array
+     *
+     * @return array
+     */
     function iniatilzeArrayConcentrationStepOne() : array
     {
         $ni = 0;
@@ -62,6 +70,12 @@ final class GiniGenerator extends AbstractEconomicService
         return $arrayConcentration;
     }
 
+    /**
+     * Allow to increment concentration array
+     *
+     * @param array $arrayConcentration
+     * @return array
+     */
     function iniatilzeArrayConcentrationStepTwo(array $arrayConcentration) : array
     {
         $fnixi = 0.0;
@@ -97,6 +111,12 @@ final class GiniGenerator extends AbstractEconomicService
         return $arrayConcentration;
     }
 
+    /**
+     * Allow to get concentration surface
+     *
+     * @param array $arrayConcentration
+     * @return float
+     */
     function getConcentrationSurface(array $arrayConcentration) : float
     {
         $arraySumSurfaceConcentration = [];
@@ -130,11 +150,22 @@ final class GiniGenerator extends AbstractEconomicService
         return 0.5 - $totalSurface;
     }
 
+    /**
+     * Allow to get gini index
+     *
+     * @param float $surfaceConcentration
+     * @return float
+     */
     function getGiniInedx(float $surfaceConcentration) : float
     {
         return 2 * $surfaceConcentration;
     }
 
+    /**
+     * Allow to evaluate wealth
+     *
+     * @return float
+     */
     function evaluateWealth() : float
     {
         $arrayConcentrationStepOne = $this->iniatilzeArrayConcentrationStepOne();

@@ -31,9 +31,14 @@ abstract class AbstractEconomicService implements SimulationEconomicServiceInter
         $this->transactionStrategy = new TransactionRandomStrategy();
     }
 
+    /**
+     * Allow to initialize population
+     *
+     * @return void
+     */
     public function initializePopulation(): void
     {
-        $this->population = $this->populationFactory->createPopulation(1000);
+        $this->population = $this->populationFactory->createPopulation(10000);
     }
 
     public function getPopulation(): array
@@ -53,12 +58,18 @@ abstract class AbstractEconomicService implements SimulationEconomicServiceInter
      */
     abstract public function evaluateWealth(): float;
 
+    /**
+     * Allow to make iteration
+     *
+     * @param integer $iteration
+     * @return void
+     */
     public function makeIteration(int $iteration): void
     {
         for($i = 0; $i < $iteration; $i++){
             // Step one : Make interaction between two individuals
             $twoIndividuals = $this->interactionStrategy->selectTwoIndividual($this->population);
-            // var_dump($twoIndividuals);
+
             // Step two : Make them trade money
             $situationAfterTrade = $this->transactionStrategy->makeTransaction($twoIndividuals);
     
@@ -69,11 +80,23 @@ abstract class AbstractEconomicService implements SimulationEconomicServiceInter
         }
     }
 
+    /**
+     * Allow to set interaction strategy
+     *
+     * @param InteractionStrategyInterface $interactionStrategy
+     * @return void
+     */
     public function setInteractionStrategy(InteractionStrategyInterface $interactionStrategy): void
     {
         $this->interactionStrategy = $interactionStrategy;
     }
 
+    /**
+     * Allow to set transaction strategy
+     *
+     * @param TransactionStrategyInterface $transactionStrategy
+     * @return void
+     */
     public function setTransactionStrategy(TransactionStrategyInterface $transactionStrategy): void
     {
         $this->transactionStrategy = $transactionStrategy;
