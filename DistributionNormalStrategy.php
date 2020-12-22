@@ -87,8 +87,3 @@ class DistributionNormalStrategy implements DistributionStrategyInterface
         return $this->sigma;
     }
 }
-
-
-
-$test = new DistributionNormalStrategy;
-print_r($test->getWallet());

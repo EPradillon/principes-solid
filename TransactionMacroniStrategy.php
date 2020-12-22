@@ -26,3 +26,4 @@ class TransactionMacroniStrategy implements TransactionStrategyInterface{
         return $selectedIndividuals;
     }
 }
+
